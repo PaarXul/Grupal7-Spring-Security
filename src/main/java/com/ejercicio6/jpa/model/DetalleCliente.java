@@ -27,7 +27,8 @@ public class DetalleCliente {
     private String direccion;
     private String comuna;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "detalleCliente")
+    @JoinColumn(name = "usuario_id")
     private UsuarioRol usuariorol;
 
     @OneToMany(mappedBy = "detalleCliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

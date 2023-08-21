@@ -25,7 +25,7 @@ public class UsuarioRol {
     @OneToOne(mappedBy = "usuariorol" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private DetalleAdministrativo detalleAdministrativo;
 
-    @OneToOne(mappedBy = "usuariorol", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     private DetalleCliente detalleCliente;
 
     @OneToOne(mappedBy = "usuariorol", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
