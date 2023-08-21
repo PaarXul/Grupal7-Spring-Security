@@ -1,4 +1,4 @@
-package com.ejercicio6.jpa.model;
+package com.ejercicio6.jpa.security.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

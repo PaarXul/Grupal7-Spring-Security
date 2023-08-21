@@ -1,6 +1,7 @@
 package com.ejercicio6.jpa.model;
 
 
+import com.ejercicio6.jpa.security.jwt.Authority;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,14 +24,22 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique=true)
     private String username;
+    @Column(unique=true)
+    public String run;
+
     private String password;
     private String nombre;
     private String apellido;
+    @Column(unique=true)
     private String email;
     private String telefono;
+    private Date fechanacimiento;
     private boolean enabled = true;
     private String perfil;
+
+
 
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "usuario")
@@ -73,6 +83,8 @@ public class Usuario implements UserDetails {
         });
         return autoridades;
     }
+
+
 
 
 }

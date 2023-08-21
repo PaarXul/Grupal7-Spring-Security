@@ -23,6 +23,9 @@ public class Rol {
     @JsonIgnore //TODO-> @JsonIgnore para que no se genere un loop infinito al momento de hacer la consulta de roles
     private Set<UsuarioRol> usuariosRol = new HashSet<>();
 
+
+
+
     public Rol() {
     }
 

@@ -1,8 +1,8 @@
 package com.ejercicio6.jpa.controllers;
 
 import com.ejercicio6.jpa.exceptions.UsuarioNotFoundException;
-import com.ejercicio6.jpa.model.JwtRequest;
-import com.ejercicio6.jpa.model.JwtResponse;
+import com.ejercicio6.jpa.security.jwt.JwtRequest;
+import com.ejercicio6.jpa.security.jwt.JwtResponse;
 import com.ejercicio6.jpa.model.Usuario;
 import com.ejercicio6.jpa.security.jwt.JwtUtil;
 import com.ejercicio6.jpa.services.serviceImpl.UserDetailsServiceImpl;

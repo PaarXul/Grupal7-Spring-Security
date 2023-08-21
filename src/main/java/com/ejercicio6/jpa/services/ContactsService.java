@@ -4,15 +4,15 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-import com.ejercicio6.jpa.model.Contact;
+import com.ejercicio6.jpa.model.Contacto;
 
 public interface ContactsService {
 
-	public List<Contact> getContacts();
+	public List<Contacto> getContacts();
 
-	public Contact newContact(Contact contact);
+	public Contacto newContact(Contacto contacto);
 
-	public ResponseEntity<Object> updateContact(Contact contact);
+	public ResponseEntity<Object> updateContact(Contacto contacto);
 
 	public ResponseEntity<Object> deleteContact(int id);
 

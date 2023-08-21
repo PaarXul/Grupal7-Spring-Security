@@ -1,5 +1,6 @@
 package com.ejercicio6.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,11 +15,23 @@ public class UsuarioRol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long usuarioRolId;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Rol rol;
+
+
+    @OneToOne(mappedBy = "usuariorol" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private DetalleAdministrativo detalleAdministrativo;
+
+    @OneToOne(mappedBy = "usuariorol", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private DetalleCliente detalleCliente;
+
+    @OneToOne(mappedBy = "usuariorol", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private DetalleProfesional detalleProfesional;
+
+
 
     public UsuarioRol() {
     }
