@@ -3,6 +3,7 @@ package com.ejercicio6.jpa.security.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,10 @@ public class JwtUtil {
         return extractClaims(token,Claims::getExpiration);
     }
 
+    public GrantedAuthority extractRole(String token){
+        return extractClaims(token,claims -> claims.get("role",GrantedAuthority.class));
+    }
+
     public <T> T extractClaims(String token, Function<Claims,T> claimsResolver){
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -39,6 +44,7 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("role",userDetails.getAuthorities());
         return createToken(claims, userDetails.getUsername());
     }
 
