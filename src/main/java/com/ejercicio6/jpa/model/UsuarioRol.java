@@ -1,6 +1,5 @@
 package com.ejercicio6.jpa.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,13 +21,16 @@ public class UsuarioRol {
     private Rol rol;
 
 
-    @OneToOne(mappedBy = "usuariorol" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detalle_administrativo_id", referencedColumnName = "id")
     private DetalleAdministrativo detalleAdministrativo;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detalle_cliente_id", referencedColumnName = "id")
     private DetalleCliente detalleCliente;
 
-    @OneToOne(mappedBy = "usuariorol", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detalle_profesional_id", referencedColumnName = "id")
     private DetalleProfesional detalleProfesional;
 
 

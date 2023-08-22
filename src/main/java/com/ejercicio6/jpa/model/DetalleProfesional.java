@@ -1,5 +1,6 @@
 package com.ejercicio6.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,8 @@ public class DetalleProfesional {
     private String titulo;
     private Date fechaIngreso;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "detalleProfesional")
+    @JsonIgnore
     private UsuarioRol usuariorol;
 
     @OneToMany(mappedBy = "detalleProfesional", fetch = FetchType.LAZY)

@@ -48,12 +48,9 @@ public class MySecurityConfig {
                                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                                 .anyRequest().authenticated()
                 ).exceptionHandling(e -> e.authenticationEntryPoint(this.unauthorizedHandler))
-
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
                  .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                  .authenticationProvider(authenticationProvider())
-
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();

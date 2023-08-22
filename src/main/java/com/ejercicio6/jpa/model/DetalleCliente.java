@@ -22,13 +22,14 @@ public class DetalleCliente {
     private String nombres;
     private String apellidos;
     private String telefono;
+
     private String afp;
     private int sistemaSalud;
     private String direccion;
     private String comuna;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "detalleCliente")
-    @JoinColumn(name = "usuario_id")
+    @OneToOne(mappedBy = "detalleCliente")
+    @JsonIgnore
     private UsuarioRol usuariorol;
 
     @OneToMany(mappedBy = "detalleCliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

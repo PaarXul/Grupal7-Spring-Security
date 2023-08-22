@@ -1,5 +1,6 @@
 package com.ejercicio6.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,8 @@ public class DetalleAdministrativo {
     private String area;
     private String experienciaPrevia;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "detalleAdministrativo")
+    @JsonIgnore
     private UsuarioRol usuariorol;
 
 }
