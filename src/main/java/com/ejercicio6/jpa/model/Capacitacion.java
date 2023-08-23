@@ -24,11 +24,10 @@ public class Capacitacion {
     private String hora;
     private String lugar;
     private String duracion;
-    private int cantidadAsistentes;
+    private int cantidadasistentes;
+    private Double valorapagar;
 
-    private Double ValorAPagar;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private DetalleCliente detalleCliente;
 
     @OneToMany(mappedBy = "capacitacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

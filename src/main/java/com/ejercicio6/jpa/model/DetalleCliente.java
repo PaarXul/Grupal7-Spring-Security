@@ -22,7 +22,6 @@ public class DetalleCliente {
     private String nombres;
     private String apellidos;
     private String telefono;
-
     private String afp;
     private int sistemaSalud;
     private String direccion;
@@ -32,15 +31,15 @@ public class DetalleCliente {
     @JsonIgnore
     private UsuarioRol usuariorol;
 
-    @OneToMany(mappedBy = "detalleCliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "detalleCliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Visita> visita = new HashSet<Visita>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "detalleCliente", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "detalleCliente", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Capacitacion> capacitaciones = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "detalleCliente", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "detalleCliente", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Accidente> accidentes = new HashSet<>();
 

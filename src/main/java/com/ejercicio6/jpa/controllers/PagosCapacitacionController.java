@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
-@RequestMapping("/pagosCapacitacion")
+@RequestMapping("/pagoscapacitacion")
 @CrossOrigin("*")
 public class PagosCapacitacionController {
 
@@ -20,7 +22,7 @@ public class PagosCapacitacionController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<PagosCapacitacion> guardarPagosCapacitacion(PagosCapacitacion pagosCapacitacion) {
+    public ResponseEntity<PagosCapacitacion> guardarPagosCapacitacion(@RequestBody PagosCapacitacion pagosCapacitacion) {
         return ResponseEntity.ok(pagosCapacitacionService.guardarPagosCapacitacion(pagosCapacitacion));
     }
 
@@ -41,12 +43,12 @@ public class PagosCapacitacionController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<?> listarPagosCapacitacion(){
+    public ResponseEntity<Set<PagosCapacitacion>> listarPagosCapacitacion(){
         return ResponseEntity.ok(pagosCapacitacionService.listarPagosCapacitacion());
     }
 
     @GetMapping("/capacitacion/{id}")
-    public ResponseEntity<?> listarPagosCapacitacionPorCapacitacion(@PathVariable("id") Long id) {
+    public ResponseEntity<Set<PagosCapacitacion>> listarPagosCapacitacionPorCapacitacion(@PathVariable("id") Long id) {
         return ResponseEntity.ok(pagosCapacitacionService.listarPagosCapacitacionPorCapacitacion(id));
     }
 

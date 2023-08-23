@@ -5,7 +5,6 @@ import com.ejercicio6.jpa.services.DetalleClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Set;
 
 @RestController
@@ -14,7 +13,6 @@ import java.util.Set;
 public class DetalleClienteController {
 
     private final DetalleClienteService detalleClienteService;
-
     @Autowired
     public DetalleClienteController(DetalleClienteService detalleClienteService) {
         this.detalleClienteService = detalleClienteService;

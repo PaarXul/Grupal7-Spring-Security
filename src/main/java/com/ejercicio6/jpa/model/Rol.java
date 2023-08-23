@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,10 +22,6 @@ public class Rol {
     @JsonIgnore //TODO-> @JsonIgnore para que no se genere un loop infinito al momento de hacer la consulta de roles
     private Set<UsuarioRol> usuariosRol = new HashSet<>();
 
-
-
-
     public Rol() {
     }
-
 }

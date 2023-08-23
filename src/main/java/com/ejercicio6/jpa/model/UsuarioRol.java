@@ -33,8 +33,6 @@ public class UsuarioRol {
     @JoinColumn(name = "detalle_profesional_id", referencedColumnName = "id")
     private DetalleProfesional detalleProfesional;
 
-
-
     public UsuarioRol() {
     }
 
