@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,13 +21,13 @@ public class JwtUtil {
     public String extractUsername(String token){
         return extractClaims(token,Claims::getSubject);
     }
-
     public Date extractExpiration(String token){
         return extractClaims(token,Claims::getExpiration);
     }
 
-    public GrantedAuthority extractRole(String token){
-        return extractClaims(token,claims -> claims.get("role",GrantedAuthority.class));
+    public Collection <GrantedAuthority> extractRole(String token){
+        return extractClaims(token,claims -> claims.get("role",Collection.class));
+
     }
 
     public <T> T extractClaims(String token, Function<Claims,T> claimsResolver){
@@ -59,6 +60,8 @@ public class JwtUtil {
 
     public Boolean validateToken(String token, UserDetails userDetails){
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+
+        System.out.println(extractRole(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token) );
     }
 }

@@ -4,6 +4,7 @@ import com.ejercicio6.jpa.model.Rol;
 import com.ejercicio6.jpa.services.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -47,6 +48,7 @@ public class RolController {
         return ResponseEntity.ok(rolService.obtenerRolPorId(id));
     }
 
+   @PreAuthorize("hasAuthority('ADMIN')") // ->> Esto es lo que hay que agregar para que funcione el rol
     @GetMapping("/todos/")
     public ResponseEntity<?> obtenerRoles() {
 

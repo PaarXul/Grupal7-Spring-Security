@@ -18,6 +18,7 @@ public class AsistentesController {
         this.asistentesService = asistentesService;
     }
 
+
     @PostMapping("/")
     public ResponseEntity<Asistentes> guardarAsistentes(@RequestBody Asistentes asistentes){
         return ResponseEntity.ok(asistentesService.guardarAsistentes(asistentes));
