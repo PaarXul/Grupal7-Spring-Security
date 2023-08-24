@@ -1,6 +1,7 @@
 package com.ejercicio6.jpa.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,7 @@ public class DetalleCliente {
     private String comuna;
 
     @OneToOne(mappedBy = "detalleCliente")
-    @JsonIgnore
+    @JsonIgnoreProperties("detalleCliente")
     private UsuarioRol usuariorol;
 
     @OneToMany(mappedBy = "detalleCliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

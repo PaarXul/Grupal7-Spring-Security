@@ -1,8 +1,7 @@
 package com.ejercicio6.jpa.repositories;
 
-import com.ejercicio6.jpa.model.Asistentes;
-import com.ejercicio6.jpa.model.Capacitacion;
-import com.ejercicio6.jpa.model.Usuario;
+import com.ejercicio6.jpa.model.Contacto;
+import com.ejercicio6.jpa.model.DetalleCliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
@@ -11,8 +10,8 @@ import java.util.Set;
 
 @Repository
 @EnableJpaRepositories
-public interface AsistentesRepository extends JpaRepository<Asistentes, Long> {
+public interface ContactoRepository extends JpaRepository<Contacto, Long> {
 
-    Set<Asistentes> findAsistentesByCapacitacion (Capacitacion capacitacion);
+    Set<Contacto> findByDetalleCliente (DetalleCliente detalleCliente);
 
 }
