@@ -1,4 +1,4 @@
-package com.ejercicio6.jpa.exceptions;
+package com.ejercicio6.jpa.controllers.exceptions;
 
 public class UsuarioFoundException extends Exception {
 

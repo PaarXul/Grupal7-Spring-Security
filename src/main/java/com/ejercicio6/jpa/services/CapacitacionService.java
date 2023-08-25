@@ -5,7 +5,6 @@ import com.ejercicio6.jpa.model.Capacitacion;
 import java.util.Set;
 
 public interface CapacitacionService {
-
     Capacitacion guardarCapacitacion(Capacitacion capacitacion);
 
     Capacitacion actualizarCapacitacion(Capacitacion capacitacion);

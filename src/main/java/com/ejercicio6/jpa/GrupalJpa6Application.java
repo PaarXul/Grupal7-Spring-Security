@@ -1,18 +1,8 @@
 package com.ejercicio6.jpa;
 
-import com.ejercicio6.jpa.exceptions.UsuarioFoundException;
-import com.ejercicio6.jpa.model.Rol;
-import com.ejercicio6.jpa.model.Usuario;
-import com.ejercicio6.jpa.model.UsuarioRol;
-import com.ejercicio6.jpa.services.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @SpringBootApplication
 public class GrupalJpa6Application implements CommandLineRunner {

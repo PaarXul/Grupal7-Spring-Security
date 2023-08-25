@@ -1,6 +1,6 @@
 package com.ejercicio6.jpa.services.serviceImpl;
 
-import com.ejercicio6.jpa.exceptions.UsuarioFoundException;
+import com.ejercicio6.jpa.controllers.exceptions.UsuarioFoundException;
 import com.ejercicio6.jpa.model.Usuario;
 import com.ejercicio6.jpa.model.UsuarioRol;
 import com.ejercicio6.jpa.repositories.RolRepository;
