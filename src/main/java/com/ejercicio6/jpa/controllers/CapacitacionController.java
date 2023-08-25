@@ -20,12 +20,12 @@ public class CapacitacionController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Capacitacion> guardarCapacitacion(@RequestBody Capacitacion capacitacion)  {
+    public ResponseEntity<Capacitacion> guardarCapacitacion(@RequestBody Capacitacion capacitacion) {
         return ResponseEntity.ok(capacitacionService.guardarCapacitacion(capacitacion));
     }
 
     @PutMapping("/")
-    public ResponseEntity<Capacitacion> actualizarCapacitacion(@RequestBody Capacitacion capacitacion)  {
+    public ResponseEntity<Capacitacion> actualizarCapacitacion(@RequestBody Capacitacion capacitacion) {
         return ResponseEntity.ok(capacitacionService.actualizarCapacitacion(capacitacion));
     }
 

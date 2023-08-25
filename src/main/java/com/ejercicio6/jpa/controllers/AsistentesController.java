@@ -12,7 +12,6 @@ import java.util.Set;
 @RequestMapping("/asistentes")
 @CrossOrigin("*")
 public class AsistentesController {
-
     private AsistentesService asistentesService;
 
     @Autowired
@@ -25,7 +24,6 @@ public class AsistentesController {
     public ResponseEntity<Asistentes> guardarAsistentes(@RequestBody Asistentes asistentes){
         return ResponseEntity.ok(asistentesService.guardarAsistentes(asistentes));
     }
-
 
     @PutMapping("/")
     public ResponseEntity<Asistentes> actualizarAsistentes(@RequestBody Asistentes asistentes){
@@ -52,6 +50,4 @@ public class AsistentesController {
     public ResponseEntity<Iterable<Asistentes>> obtenerAsistentesPorCapacitacion(@PathVariable("id") Long id){
         return ResponseEntity.ok(asistentesService.obtenerAsistentesPorCapacitacion(id));
     }
-
-
 }
