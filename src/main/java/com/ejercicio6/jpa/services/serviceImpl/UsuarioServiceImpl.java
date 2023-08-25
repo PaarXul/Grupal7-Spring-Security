@@ -61,12 +61,16 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     @Transactional
-    public Usuario actualizarUsuario(Usuario usuario) throws Exception {
-        Usuario usuarioLocal;
+    public Usuario actualizarUsuario(Usuario usuario){
 
-        usuarioLocal = usuarioRepository.save(usuario);
+        return usuarioRepository.save(usuario);
 
-        return usuarioLocal;
+    }
+
+    @Override
+    @Transactional
+    public Usuario actualizarContrasena(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 
     @Override
@@ -75,10 +79,6 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findById(usuarioId).orElse(null);
     }
 
-    @Override
-    @Transactional
-    public Usuario actualizarContrasena(Usuario usuario) throws Exception {
-        return usuarioRepository.save(usuario);
-    }
+
 
 }

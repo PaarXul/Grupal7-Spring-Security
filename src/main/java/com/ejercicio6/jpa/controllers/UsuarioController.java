@@ -63,10 +63,22 @@ public class UsuarioController {
 
     @PutMapping("/actualizar/")
     public ResponseEntity<Usuario> actualizarUsuario(@RequestBody Usuario usuario) throws Exception {
-        usuario.setPerfil("default.png");
-        usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
-        return ResponseEntity.ok(usuarioService.actualizarUsuario(usuario));
+        Usuario usuarioActual = usuarioService.obtenerUsuarioPorId(usuario.getId());
+        usuarioActual.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
+        usuarioActual.setRun(usuario.getRun());
+        usuarioActual.setNombre(usuario.getNombre());
+        usuarioActual.setApellido(usuario.getApellido());
+        usuarioActual.setTelefono(usuario.getTelefono());
+        usuarioActual.setEmail(usuario.getEmail());
+        usuarioActual.setEnabled(usuario.isEnabled());
+        return ResponseEntity.ok(usuarioService.actualizarUsuario(usuarioActual));
+    }
 
+    @PutMapping("/contrasena")
+    public ResponseEntity<Usuario> actualizarContrasena(@RequestBody Usuario usuario) throws Exception {
+        Usuario usuarioActual = usuarioService.obtenerUsuarioPorId(usuario.getId());
+        usuarioActual.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
+        return ResponseEntity.ok(usuarioService.actualizarContrasena(usuarioActual));
     }
 
     @GetMapping("/id/{usuarioId}")
@@ -75,11 +87,6 @@ public class UsuarioController {
     }
 
     // Ejemplo de como actualizar un parametro de un usuario sin borrar los anteriores
-    @PutMapping("/contrasena")
-    public ResponseEntity<Usuario> actualizarContrasena(@RequestBody Usuario usuario) throws Exception {
-        Usuario usuarioActual = usuarioService.obtenerUsuarioPorId(usuario.getId());
-        usuarioActual.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
-        return ResponseEntity.ok(usuarioService.actualizarContrasena(usuarioActual));
-    }
+
 
 }

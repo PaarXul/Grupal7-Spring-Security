@@ -24,19 +24,15 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique=true)
     private String username;
-    @Column(unique=true)
     public String run;
-
     private String password;
     private String nombre;
     private String apellido;
-    @Column(unique=true)
     private String email;
     private String telefono;
     private Date fechanacimiento;
-    private boolean enabled = true;
+    private boolean enabled=true;
     private String perfil;
 
 
@@ -49,17 +45,6 @@ public class Usuario implements UserDetails {
     public Usuario() {
 
     }
-
-    public Usuario(Long id, String username, String password, String nombre, String apellido, String email, String telefono, boolean enabled, String perfil) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.telefono = telefono;
-        this.enabled = enabled;
-        this.perfil = perfil;
-    }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
