@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.management.Descriptor;
-
 @Entity
 @NoArgsConstructor
 @Setter
@@ -29,8 +27,4 @@ public class Asesoria {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private DetalleCliente detalleCliente;
-
-
-
-
 }

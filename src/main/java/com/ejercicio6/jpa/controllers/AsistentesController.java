@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 @RequestMapping("/asistentes")
 @CrossOrigin("*")
 public class AsistentesController {
-
     private AsistentesService asistentesService;
 
     @Autowired
@@ -23,7 +24,6 @@ public class AsistentesController {
     public ResponseEntity<Asistentes> guardarAsistentes(@RequestBody Asistentes asistentes){
         return ResponseEntity.ok(asistentesService.guardarAsistentes(asistentes));
     }
-
 
     @PutMapping("/")
     public ResponseEntity<Asistentes> actualizarAsistentes(@RequestBody Asistentes asistentes){
@@ -42,7 +42,7 @@ public class AsistentesController {
     }
 
     @GetMapping("/todos/")
-    public ResponseEntity<Iterable<Asistentes>> obtenerAsistentes(){
+    public ResponseEntity<Set<Asistentes>> obtenerAsistentes(){
         return ResponseEntity.ok(asistentesService.obtenerAsistentes());
     }
 
@@ -50,6 +50,4 @@ public class AsistentesController {
     public ResponseEntity<Iterable<Asistentes>> obtenerAsistentesPorCapacitacion(@PathVariable("id") Long id){
         return ResponseEntity.ok(asistentesService.obtenerAsistentesPorCapacitacion(id));
     }
-
-
 }
