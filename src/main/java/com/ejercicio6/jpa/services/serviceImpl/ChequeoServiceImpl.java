@@ -44,7 +44,7 @@ public class ChequeoServiceImpl implements ChequeoService {
     }
 
     @Override
-    public Chequeo actualizarChequeo(Chequeo chequeo) throws Exception {
+    public Chequeo actualizarChequeo(Chequeo chequeo) {
         return chequeoRepository.save(chequeo);
     }
 }

@@ -7,7 +7,7 @@ import java.util.Set;
 public interface ChequeoService {
     Chequeo guardarChequeo(Chequeo chequeo);
 
-    Chequeo actualizarChequeo(Chequeo chequeo) throws Exception;
+    Chequeo actualizarChequeo(Chequeo chequeo);
 
     Chequeo obtenerChequeoPorId(Long id);
 
