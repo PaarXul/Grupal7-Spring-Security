@@ -53,7 +53,4 @@ public class AsesoriaController {
 
         return ResponseEntity.ok(asesoriaService.obtenerAsesorias());
     }
-
-
-
 }

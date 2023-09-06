@@ -4,6 +4,8 @@ import com.ejercicio6.jpa.model.DetalleAdministrativo;
 import com.ejercicio6.jpa.services.DetalleAdministrativoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,6 +30,8 @@ public class DetalleAdministrativoController {
         return ResponseEntity.ok(detalleadministrativoService.actualizarDetalleAdministrativo(detalleadministrativo));
     }
 
+    @PreAuthorize("hasRole('NORMAL') or hasRole('ADMIN')")
+    @Secured({"NORMAL", "ADMIN"})
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarDetalleAdministrativo(@PathVariable("id") Long id) throws Exception {
         detalleadministrativoService.eliminarDetalleAdministrativo(id);

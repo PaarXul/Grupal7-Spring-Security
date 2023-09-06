@@ -1,13 +1,24 @@
 package com.ejercicio6.jpa;
 
+import com.ejercicio6.jpa.controllers.exceptions.UsuarioFoundException;
+import com.ejercicio6.jpa.model.Rol;
+import com.ejercicio6.jpa.model.Usuario;
+import com.ejercicio6.jpa.model.UsuarioRol;
+import com.ejercicio6.jpa.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 public class GrupalJpa6Application implements CommandLineRunner {
 
-/*
+	/*
+
 	// Insercion de usuarios
 	@Autowired
 	private UsuarioService usuarioService;
@@ -22,12 +33,12 @@ public class GrupalJpa6Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//Insercion de Usuarios y ROL
-		/*
+/*
 		try {
 		Usuario usuario = new Usuario();
 
 		usuario.setUsername("Gian");
-		usuario.setPassword(bCryptPasswordEncoder.encode("12345"));
+		usuario.setPassword(bCryptPasswordEncoder.encode("G"));
 		usuario.setEmail("Gian@gmail.com");
 		usuario.setTelefono("123456789");
 		usuario.setPerfil("foto.png");
@@ -71,7 +82,7 @@ public class GrupalJpa6Application implements CommandLineRunner {
 	} catch(UsuarioFoundException exception) {
 		exception.printStackTrace();
 	}
-		*/
+*/
 
 	}
 }
